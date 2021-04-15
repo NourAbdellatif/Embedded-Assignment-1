@@ -9,5 +9,6 @@ int ly_result;
 };
 int main()
 {
+    printf("Greetings this is our project! \n");
     return 0;
 }
