@@ -7,32 +7,37 @@ int date[3];
 int ly_result;
 };
 int n;
-void insert_begin(struct student* ptr, struct student obj1){
+int end=-1;
+void insert_begin(struct student* ptr, struct student obj1){   // function to insert at the beginning of the array
+/*if(end+1==n){
+struct student*ptr=(struct student*)realloc(struct student*ptr,2*n);
+n=2*n;
+}*/
 int i;
 for(i=n-1;i>0;i--){
 *(ptr+i)=*(ptr+i-1);
 }
 *ptr=obj1;
 }
-void insert_end(struct student* ptr, struct student obj1){
-int insertion_index;
-for(int i=0;i<n;i++){
-
-  if((ptr+i)->id==0){
-    insertion_index=i;
-
-  }
-
+void insert_end(struct student* ptr, struct student obj1){ // function to append at the end of the array
+/*if(end+1==n){
+        n=2*n;
+struct student*ptr=(struct student*)realloc(struct student*ptr,2*n);
+}*/
+end++;
+*(ptr+end)=obj1;
 }
-*(ptr+insertion_index)=obj1;
-}
-void insert_middle(struct student *ptr,struct student obj2){
-int mid_index=(n-1)/2;
+void insert_middle(struct student *ptr,struct student obj2, int index){ // function to insert at any index of the array
+/*if(end+1==n){
+struct student*ptr=(struct student*)realloc(struct student*ptr,2*n);
+n=2*n;
+}*/
+end++;
 int i;
-for(i=n-1;i>mid_index;i--){
+for(i=n-1;i>index;i--){
     *(ptr+i)=*(ptr+i-1);
 }
-*(ptr+mid_index)=obj2;
+*(ptr+index)=obj2;
 }
 int main()
 { printf("please enter the number of students you will store \n");
