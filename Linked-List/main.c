@@ -11,21 +11,22 @@ struct student {
 struct node{
     struct student;
     struct node* next;
-    int data
-}*head;
+    int data;
+};
 
-void insert_at_head(struct node* newp){
+struct node* insert_at_head(struct node* newp,struct node* head){
     int x;
     printf("please enter the new data node \n");
     scanf("%d",&x);
     newp->data=x;
     newp->next=head;
     head=newp;
+    return head;
 
 };
-void createList(int n)
+struct node* createList(int n)
 {
-    struct node *newNode, *temp;
+    struct node *newNode, *temp, *head;
     int data, i;
 
     head = (struct node *)malloc(sizeof(struct node));
@@ -68,8 +69,9 @@ void createList(int n)
         temp->next = newNode; // Link previous node with newNode
         temp = temp->next;    // Make current node as previous node
     }
+    return head;
 }
-void traverseList()
+void traverseList(struct node *head)
 {
     struct node *temp;
 
@@ -91,13 +93,14 @@ int main()
 {
     int N;
     struct student st1;
+    struct node* head1;
     printf("Greetings this is our project! \nplease enter the number of elements in the linked list \n");
     scanf("%d",&N);
-    createList(N);
-    traverseList();
+    head1=createList(N);
+    traverseList(head1);
     struct node* st0;
     st0=(struct node *)malloc(sizeof(struct node));
-    insert_at_head(st0);
-    traverseList();
+    head1=insert_at_head(st0,head1);
+    traverseList(head1);
     return 0;
 }
