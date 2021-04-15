@@ -16,7 +16,7 @@ struct node{
 
 struct node* insert_at_head(struct node* newp,struct node* head){       /*el newp deh eh new pointer ely h3mlo insert*/
     int x;
-    printf("please enter the new data node \n");
+    printf("please enter the new data node which will be the head \n");
     scanf("%d",&x);
     newp->data=x;
     newp->next=head;
@@ -34,7 +34,7 @@ void insert_at_middle(struct node* newp,struct node* head){
     for (int i=0;i<x-1;i++){
         temp= temp->next;
         }
-    printf("please enter the new data node \n");
+    printf("please enter the new data node which will be the tail \n");
     scanf("%d",&y);
     newp->next=temp->next;
     newp->data=y;
@@ -42,7 +42,20 @@ void insert_at_middle(struct node* newp,struct node* head){
 };
 
 
+void insert_at_end(struct node* newp,struct node* head){
+    struct node* temp;
+    int x;
+    temp=head;
+    while(temp->next!=NULL)
+        temp=temp->next;
 
+    printf("please enter the new data node \n");
+    scanf("%d",&x);
+    temp->next=newp;
+    newp->data=x;
+    newp->next=NULL;
+
+};
 
 struct node* createList(int n)
 {
@@ -120,11 +133,15 @@ int main()
     traverseList(head1);
     struct node* st0;
     struct node* st7;
+    struct node* st8;
     st0=(struct node *)malloc(sizeof(struct node));
     st7=(struct node *)malloc(sizeof(struct node));
+    st8=(struct node *)malloc(sizeof(struct node));
     head1=insert_at_head(st0,head1);
     traverseList(head1);
     insert_at_middle(st7,head1);
+    traverseList(head1);
+    insert_at_end(st8,head1);
     traverseList(head1);
 
     return 0;
