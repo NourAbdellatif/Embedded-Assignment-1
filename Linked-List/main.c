@@ -14,7 +14,7 @@ struct node{
     int data;
 };
 
-struct node* insert_at_head(struct node* newp,struct node* head){
+struct node* insert_at_head(struct node* newp,struct node* head){       /*el newp deh eh new pointer ely h3mlo insert*/
     int x;
     printf("please enter the new data node \n");
     scanf("%d",&x);
@@ -24,6 +24,26 @@ struct node* insert_at_head(struct node* newp,struct node* head){
     return head;
 
 };
+void insert_at_middle(struct node* newp,struct node* head){
+    int x;
+    int y;
+    printf("please enter the index of the node to be inserted \n");
+    scanf("%d",&x);
+    struct node* temp;
+    temp=head;
+    for (int i=0;i<x-1;i++){
+        temp= temp->next;
+        }
+    printf("please enter the new data node \n");
+    scanf("%d",&y);
+    newp->next=temp->next;
+    newp->data=y;
+    temp->next=newp;
+};
+
+
+
+
 struct node* createList(int n)
 {
     struct node *newNode, *temp, *head;
@@ -99,8 +119,13 @@ int main()
     head1=createList(N);
     traverseList(head1);
     struct node* st0;
+    struct node* st7;
     st0=(struct node *)malloc(sizeof(struct node));
+    st7=(struct node *)malloc(sizeof(struct node));
     head1=insert_at_head(st0,head1);
     traverseList(head1);
+    insert_at_middle(st7,head1);
+    traverseList(head1);
+
     return 0;
 }
