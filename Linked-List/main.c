@@ -4,23 +4,34 @@
 struct student {
     char name[100];
     int id;
-    int date[3];
+    int day,month,year;
     int ly_result;
 };
 
 struct node{
-    struct student;
+    struct student st;
     struct node* next;
     int data;
 };
 
-struct node* insert_at_head(struct node* newp,struct node* head){       /*el newp deh eh new pointer ely h3mlo insert*/
+struct node* insert_at_head(struct node* newN,struct node* head){       /*el newp deh eh new node ely h3mlo insert*/
     int x;
-    printf("please enter the new data node which will be the head \n");
-    scanf("%d",&x);
-    newp->data=x;
-    newp->next=head;
-    head=newp;
+    printf("please enter the data of the new student which will be the head \n");
+    printf("Please enter the Name: ");
+    scanf("%s",&newN->st.name);
+    printf("Please enter the ID: ");
+    scanf("%d",&newN->st.id);
+    printf("Please enter the Birthday:\nday: ");
+    scanf("%d",&newN->st.day);
+    printf("month: ");
+    scanf("%d",&newN->st.month);
+    printf("year: ");
+    scanf("%d",&newN->st.year);
+    printf("Please enter the last year result: ");
+    scanf("%d",&newN->st.ly_result);
+    //newp->st.id=x;
+    newN->next=head;
+    head=newN;
     return head;
 
 };
@@ -60,7 +71,7 @@ void insert_at_end(struct node* newp,struct node* head){
 struct node* createList(int n)
 {
     struct node *newNode, *temp, *head;
-    int data, i;
+    int i;
 
     head = (struct node *)malloc(sizeof(struct node));
 
@@ -73,12 +84,22 @@ struct node* createList(int n)
 
 
     // Input data of node from the user
-    printf("Enter the data of node 1: ");
-    scanf("%d", &data);
+    printf("Enter the data of student 1: \nPlease enter the Name: ");
+    scanf("%s",&head->st.name);
+    printf("Please enter the ID: ");
+    scanf("%d",&head->st.id);
+    printf("Please enter the Birthday:\nday: ");
+    scanf("%d",&head->st.day);
+    printf("month: ");
+    scanf("%d",&head->st.month);
+    printf("year: ");
+    scanf("%d",&head->st.year);
+    printf("Please enter the last year result: ");
+    scanf("%d",&head->st.ly_result);
 
-    head->data = data; // Link data field with data
+    //head->data = x; // Link data field with data
     head->next = NULL; // Link address field to NULL
-
+    //head->st.id=x;
 
     // Create n - 1 nodes and add to list
     temp = head;
@@ -93,12 +114,22 @@ struct node* createList(int n)
             break;
         }
 
-        printf("Enter the data of node %d: ", i);
-        scanf("%d", &data);
+    printf("Enter the data of student %d: \nPlease enter the Name: ",i);
+    scanf("%s",&newNode->st.name);
+    printf("Please enter the ID: ");
+    scanf("%d",&newNode->st.id);
+    printf("Please enter the Birthday:\nday: ");
+    scanf("%d",&newNode->st.day);
+    printf("month: ");
+    scanf("%d",&newNode->st.month);
+    printf("year: ");
+    scanf("%d",&newNode->st.year);
+    printf("Please enter the last year result: ");
+    scanf("%d",&newNode->st.ly_result);
 
-        newNode->data = data; // Link data field of newNode
+        //newNode->data = x; // Link data field of newNode
         newNode->next = NULL; // Make sure new node points to NULL
-
+       // newNode->st.id=x;
         temp->next = newNode; // Link previous node with newNode
         temp = temp->next;    // Make current node as previous node
     }
@@ -118,7 +149,7 @@ void traverseList(struct node *head)
     temp = head;
     while(temp != NULL)
     {
-        printf("Data = %d\n", temp->data); // Print data of current node
+        printf("Name: %s\nID = %d\nbirthday : %d / %d / %d\nlast year result : %d\n", temp->st.name,temp->st.id,temp->st.day,temp->st.month,temp->st.year,temp->st.ly_result); // Print data of current node
         temp = temp->next;                 // Move to next node
     }
 }
@@ -139,10 +170,10 @@ int main()
     st8=(struct node *)malloc(sizeof(struct node));
     head1=insert_at_head(st0,head1);
     traverseList(head1);
-    insert_at_middle(st7,head1);
+    /*insert_at_middle(st7,head1);
     traverseList(head1);
     insert_at_end(st8,head1);
-    traverseList(head1);
+    traverseList(head1);*/
 
     return 0;
 }
