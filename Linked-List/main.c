@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 struct student {
     char name[100];
     int id;
     int day,month,year;
     int ly_result;
 };
+<<<<<<< HEAD
 
 struct node{
     struct student st;
@@ -194,6 +194,48 @@ int main()
     traverseList(head1);
     insert_at_end(st8,head1);
     traverseList(head1);
+=======
+int n;
+int end=-1;
+void insert_begin(struct student* ptr, struct student obj1){   // function to insert at the beginning of the array
+if(end+1==n){
+        n=2*n;
+ptr=(struct student*)realloc(ptr,sizeof(struct student)*n*2);
+
+}
+int i;
+for(i=n-1;i>0;i--){
+*(ptr+i)=*(ptr+i-1);
+}
+*ptr=obj1;
+}
+void insert_end(struct student* ptr, struct student obj1){ // function to append at the end of the array
+if(end+1==n){
+        n=2*n;
+ptr=(struct student*)realloc(ptr,2*n);
+}
+end++;
+*(ptr+end)=obj1;
+}
+void insert_middle(struct student *ptr,struct student obj2, int index){ // function to insert at any index of the array
+if(end+1==n){
+ptr=(struct student*)realloc(ptr,2*n);
+n=2*n;
+}
+end++;
+int i;
+for(i=n-1;i>index;i--){
+    *(ptr+i)=*(ptr+i-1);
+}
+*(ptr+index)=obj2;
+}
+int main()
+{ printf("please enter the number of students you will store \n");
+scanf("%d",&n);
+struct student *ptr_student=(struct student* )calloc(n,sizeof(struct student));
+
+
+>>>>>>> dynamicarray
 
     return 0;
 }
