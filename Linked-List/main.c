@@ -35,7 +35,7 @@ struct node* insert_at_head(struct node* newN,struct node* head){       /*el new
     return head;
 
 };
-void insert_at_middle(struct node* newp,struct node* head){
+void insert_at_middle(struct node* newN,struct node* head){
     int x;
     int y;
     printf("please enter the index of the node to be inserted \n");
@@ -45,26 +45,46 @@ void insert_at_middle(struct node* newp,struct node* head){
     for (int i=0;i<x-1;i++){
         temp= temp->next;
         }
-    printf("please enter the new data node which will be the tail \n");
-    scanf("%d",&y);
-    newp->next=temp->next;
-    newp->data=y;
-    temp->next=newp;
+    printf("please enter the data of the new student \n");
+    printf("Please enter the Name: ");
+    scanf("%s",&newN->st.name);
+    printf("Please enter the ID: ");
+    scanf("%d",&newN->st.id);
+    printf("Please enter the Birthday:\nday: ");
+    scanf("%d",&newN->st.day);
+    printf("month: ");
+    scanf("%d",&newN->st.month);
+    printf("year: ");
+    scanf("%d",&newN->st.year);
+    printf("Please enter the last year result: ");
+    scanf("%d",&newN->st.ly_result);
+    newN->next=temp->next;
+    temp->next=newN;
 };
 
 
-void insert_at_end(struct node* newp,struct node* head){
+void insert_at_end(struct node* newN,struct node* head){
     struct node* temp;
     int x;
     temp=head;
     while(temp->next!=NULL)
         temp=temp->next;
 
-    printf("please enter the new data node \n");
-    scanf("%d",&x);
-    temp->next=newp;
-    newp->data=x;
-    newp->next=NULL;
+    printf("please enter the data of the new student which will be the tail \n");
+    printf("Please enter the Name: ");
+    scanf("%s",&newN->st.name);
+    printf("Please enter the ID: ");
+    scanf("%d",&newN->st.id);
+    printf("Please enter the Birthday:\nday: ");
+    scanf("%d",&newN->st.day);
+    printf("month: ");
+    scanf("%d",&newN->st.month);
+    printf("year: ");
+    scanf("%d",&newN->st.year);
+    printf("Please enter the last year result: ");
+    scanf("%d",&newN->st.ly_result);
+    temp->next=newN;
+    newN->next=NULL;
 
 };
 
@@ -158,7 +178,7 @@ int main()
     int N;
     struct student st1;
     struct node* head1;
-    printf("Greetings this is our project! \nplease enter the number of elements in the linked list \n");
+    printf("Greetings this is our project! \nPlease enter the number of elements in the linked list \n");
     scanf("%d",&N);
     head1=createList(N);
     traverseList(head1);
@@ -170,10 +190,10 @@ int main()
     st8=(struct node *)malloc(sizeof(struct node));
     head1=insert_at_head(st0,head1);
     traverseList(head1);
-    /*insert_at_middle(st7,head1);
+    insert_at_middle(st7,head1);
     traverseList(head1);
     insert_at_end(st8,head1);
-    traverseList(head1);*/
+    traverseList(head1);
 
     return 0;
 }
