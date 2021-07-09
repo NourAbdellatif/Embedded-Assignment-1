@@ -6,10 +6,6 @@ struct student {
     int day,month,year;
     int ly_result;
 };
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> dynamicarray
 
 struct node{
     struct student st;
@@ -17,14 +13,9 @@ struct node{
     int data;
 };
 
-<<<<<<< HEAD
-struct node* insert_at_head(struct node* newN,struct node* head){       /*el newp deh eh new node ely h3mlo insert*/
-    int x;
-=======
 struct node* insert_at_head(struct node* newN,struct node* head){       /*newN node to be inserted*/
     int x;
     printf("-------------------------------------------------------------\n");
->>>>>>> dynamicarray
     printf("please enter the data of the new student which will be the head \n");
     printf("Please enter the Name: ");
     scanf("%s",&newN->st.name);
@@ -47,10 +38,7 @@ struct node* insert_at_head(struct node* newN,struct node* head){       /*newN n
 void insert_at_middle(struct node* newN,struct node* head){
     int x;
     int y;
-<<<<<<< HEAD
-=======
     printf("-------------------------------------------------------------\n");
->>>>>>> dynamicarray
     printf("please enter the index of the node to be inserted \n");
     scanf("%d",&x);
     struct node* temp;
@@ -82,11 +70,7 @@ void insert_at_end(struct node* newN,struct node* head){
     temp=head;
     while(temp->next!=NULL)
         temp=temp->next;
-<<<<<<< HEAD
-
-=======
     printf("-------------------------------------------------------------\n");
->>>>>>> dynamicarray
     printf("please enter the data of the new student which will be the tail \n");
     printf("Please enter the Name: ");
     scanf("%s",&newN->st.name);
@@ -105,12 +89,7 @@ void insert_at_end(struct node* newN,struct node* head){
 
 };
 
-<<<<<<< HEAD
-struct node* createList(int n)
-{
-=======
 struct node* createList(int n){
->>>>>>> dynamicarray
     struct node *newNode, *temp, *head;
     int i;
 
@@ -176,12 +155,7 @@ struct node* createList(int n){
     }
     return head;
 }
-<<<<<<< HEAD
-void traverseList(struct node *head)
-{
-=======
 void traverseList(struct node *head){
->>>>>>> dynamicarray
     struct node *temp;
 
     // Return if list is empty
@@ -194,39 +168,11 @@ void traverseList(struct node *head){
     temp = head;
     while(temp != NULL)
     {
-<<<<<<< HEAD
-=======
         printf("-------------------------------------------------------------\n");
->>>>>>> dynamicarray
         printf("Name: %s\nID = %d\nbirthday : %d / %d / %d\nlast year result : %d\n", temp->st.name,temp->st.id,temp->st.day,temp->st.month,temp->st.year,temp->st.ly_result); // Print data of current node
         temp = temp->next;                 // Move to next node
     }
 }
-<<<<<<< HEAD
-int main()
-{
-    int N;
-    struct student st1;
-    struct node* head1;
-    printf("Greetings this is our project! \nPlease enter the number of elements in the linked list \n");
-    scanf("%d",&N);
-    head1=createList(N);
-    traverseList(head1);
-    struct node* st0;
-    struct node* st7;
-    struct node* st8;
-    st0=(struct node *)malloc(sizeof(struct node));
-    st7=(struct node *)malloc(sizeof(struct node));
-    st8=(struct node *)malloc(sizeof(struct node));
-    head1=insert_at_head(st0,head1);
-    traverseList(head1);
-    insert_at_middle(st7,head1);
-    traverseList(head1);
-    insert_at_end(st8,head1);
-    traverseList(head1);
-=======
-=======
->>>>>>> dynamicarray
 int n;
 int end=-1;
 int end_empty=-1;
@@ -273,17 +219,6 @@ for(i=n-1;i>index;i--){
 }
 *(ptr+index)=obj2;
 }
-<<<<<<< HEAD
-int main()
-{ printf("please enter the number of students you will store \n");
-scanf("%d",&n);
-struct student *ptr_student=(struct student* )calloc(n,sizeof(struct student));
-
-
->>>>>>> dynamicarray
-
-    return 0;
-=======
 void print_array(struct student*ptr){
     for(int i=0;i<n;i++){
         printf("%d\n",(ptr+i)->id);
@@ -356,5 +291,4 @@ int main(){
             break;
         }
     }
->>>>>>> dynamicarray
 }
